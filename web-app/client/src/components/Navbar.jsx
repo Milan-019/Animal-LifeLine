@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import logo from '../assets/react.svg';
 
 const Navbar = () => {
     const { user, logout } = useAuth();
@@ -29,15 +30,23 @@ const Navbar = () => {
                 overflowX: 'auto' // Allow horizontal scroll if needed
             }}>
                 <Link to="/" style={{
-                    fontSize: '1.5rem',
-                    fontWeight: '700',
-                    background: 'var(--gradient-main)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    whiteSpace: 'nowrap',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    textDecoration: 'none',
                     marginRight: '20px'
                 }}>
-                    Animal Lifeline
+                    <img src={logo} alt="Logo" style={{ height: '30px', width: 'auto' }} />
+                    <span style={{
+                        fontSize: '1.5rem',
+                        fontWeight: '700',
+                        background: 'var(--gradient-main)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        whiteSpace: 'nowrap'
+                    }}>
+                        Animal Lifeline
+                    </span>
                 </Link>
                 <div className="nav-links" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
                     <Link to="/" style={{ color: 'var(--color-text)', fontWeight: '500', whiteSpace: 'nowrap' }}>Home</Link>
